@@ -7,11 +7,10 @@ phases:
     commands:
       - apt-get update
       - apt-get install -y jq
-      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip -O /opt/sonar-scanner-cli-3.3.0.1492-linux.zip
-      - unzip ./opt/sonar-scanner-cli-3.3.0.1492-linux.zip
-      - ls -ltrh /opt
-      - ls -ltrh /opt/sonar-scanner-3.3.0.1492-linux
-      - echo "sonar.host.url=http://50.17.139.139:9000" >> /opt/sonar-scanner-3.3.0.1492-linux/conf/sonar-scanner.properties
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - ls -ltrh .
+      - echo "sonar.host.url=http://50.17.139.139:9000" >> sonar-scanner-3.3.0.1492-linux/conf/sonar-scanner.properties
       - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
       - PRNUMBER=$(echo "$CODEBUILD_SOURCE_VERSION" | tr -dc '0-9')
       - SOURCE_BRANCH=$(echo "$CODEBUILD_WEBHOOK_BASE_REF" | sed s/"refs\/heads\/"//)
